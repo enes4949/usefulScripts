@@ -1,6 +1,7 @@
 
 #include <stdio.h> 
 #include <dirent.h> 
+#include <errno.h>
   
 int main(void) 
 { 
@@ -12,7 +13,7 @@ int main(void)
     if (dr == NULL)  // opendir returns NULL if couldn't open directory 
     { 
         printf("Could not open current directory" ); 
-        return 0; 
+        return ENOENT; 
     } 
   
     // Refer http://pubs.opengroup.org/onlinepubs/7990989775/xsh/readdir.html 
